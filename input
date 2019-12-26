@@ -1,0 +1,9 @@
+Not terminal:
+AS
+Starting symbol:
+A
+Rules:
+A:S
+S:(S)S|
+End
+(()())()
