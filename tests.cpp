@@ -32,7 +32,7 @@ TEST(CBCGrammar, Second) {
                         "A\n"
                         "Rules:\n"
                         "A:S\n"
-                        "S:(S)S|[S]S|<S>|\n"
+                        "S:(S)S|[S]S|<S>S|\n"
                         "End\n";
     Grammar grammar;
     std::istringstream in(input);

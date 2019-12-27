@@ -17,13 +17,15 @@ private:
     void Predict(uint32_t idx, std::vector<std::vector<std::vector<char> > >& used);
     void PredictSituation(uint32_t idx, Situation situation, std::vector<std::vector<std::vector<char> > >& used);
     void Complete(uint32_t idx, std::vector<std::vector<std::vector<char> > >& used);
-    void CompleteSituation(uint32_t idx, Situation situation, std::vector<std::vector<std::vector<char> > >& used);
+    void CompleteSituation(uint32_t idx, uint32_t sit_idx, std::vector<std::vector<std::vector<char> > >& used);
     void Scan(uint32_t idx);
     void ScanSituation(uint32_t idx, Situation situation, char symbol);
-    std::vector<std::vector<std::vector<Situation> > > table_;
+    std::vector<std::vector<Situation> > table_;
+    std::vector<std::vector<uint32_t> > complete_position_{};
     std::string input_{};
     Grammar grammar_;
     bool changed_{};
+    uint32_t predict_begin_index_{0};
 };
 
 

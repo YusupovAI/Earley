@@ -47,6 +47,8 @@ public:
 
     [[nodiscard]] size_t RulesNumber() const;
 
+    [[nodiscard]] uint32_t MaxRuleSize() const;
+
     Grammar& operator=(Grammar&&) = default;
 
     void Read(std::istream &in);
@@ -60,6 +62,8 @@ private:
     void ReadNotTerminalSymbols(std::istream &in);
 
     void ReadRules(std::istream &in);
+
+    uint32_t max_rule_size_{0};
 };
 
 #endif

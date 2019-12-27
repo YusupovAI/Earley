@@ -86,6 +86,7 @@ void Grammar::ReadRules(std::istream &in) {
             std::getline(rule, cur_token, '|');
             graph_[idx].emplace_back(rules_.size());
             rules_.emplace_back(symbol, cur_token);
+            max_rule_size_ = std::max((size_t)max_rule_size_, cur_token.size() + 1);
         } while (!rule.eof());
     } while (!in.eof());
 }
@@ -100,6 +101,10 @@ uint32_t Grammar::GetTerminalIndex(char symbol) const {
 
 size_t Grammar::RulesNumber() const {
     return rules_.size();
+}
+
+uint32_t Grammar::MaxRuleSize() const {
+    return max_rule_size_;
 }
 
 char Grammar::Rule::LeftPart() const {
